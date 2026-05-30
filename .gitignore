@@ -1,2 +1,5 @@
 slips_output
 __pycache__/
+*.pyd
+venv/
+build/

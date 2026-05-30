@@ -1489,11 +1489,11 @@ static const char *__pyx_filename;
 static const char* const __pyx_f[] = {
   "AfterImage_extrapolate.pyx",
   "<stringsource>",
-  "kitsune-env/Lib/site-packages/Cython/Includes/cpython/contextvars.pxd",
-  "kitsune-env/Lib/site-packages/Cython/Includes/cpython/array.pxd",
-  "kitsune-env/Lib/site-packages/Cython/Includes/cpython/type.pxd",
-  "kitsune-env/Lib/site-packages/Cython/Includes/cpython/bool.pxd",
-  "kitsune-env/Lib/site-packages/Cython/Includes/cpython/complex.pxd",
+  "kitsune-env/lib/site-packages/Cython/Includes/cpython/contextvars.pxd",
+  "kitsune-env/lib/site-packages/Cython/Includes/cpython/array.pxd",
+  "kitsune-env/lib/site-packages/Cython/Includes/cpython/type.pxd",
+  "kitsune-env/lib/site-packages/Cython/Includes/cpython/bool.pxd",
+  "kitsune-env/lib/site-packages/Cython/Includes/cpython/complex.pxd",
 };
 /* #### Code section: utility_code_proto_before_types ### */
 /* Atomics.proto (used by UnpackUnboundCMethod) */

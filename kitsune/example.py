@@ -1,4 +1,5 @@
 from Kitsune import Kitsune
+import argparse
 import numpy as np
 import time
 
@@ -13,26 +14,47 @@ import time
 #The runtimes presented in the paper, are based on the C++ implimentation (roughly 100x faster than the python implimentation)
 ###################  Last Tested with Anaconda 3.6.3   #######################
 
-# Load Mirai pcap (a recording of the Mirai botnet malware being activated)
-# The first 70,000 observations are clean...
-# print("Unzipping Sample Capture...")
-# import zipfile
-# with zipfile.ZipFile("mirai.zip","r") as zip_ref:
-#     zip_ref.extractall()
 
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Run Kitsune on a pcap/pcapng/tsv file."
+    )
+    parser.add_argument(
+        "--path",
+        default="attack.pcap",
+        help="pcap/pcapng/tsv file to process",
+    )
+    parser.add_argument(
+        "--fmgrace",
+        type=int,
+        default=2000,
+        help="instances used to learn the feature mapping",
+    )
+    parser.add_argument(
+        "--adgrace",
+        type=int,
+        default=7000,
+        help="instances used to train the anomaly detector",
+    )
+    return parser.parse_args()
+
+
+args = parse_args()
 
 # File location
-path = "mirai.pcap" #the pcap, pcapng, or tsv file to process.
-# path = "attack.pcap.tsv"
+path = args.path
 packet_limit = np.inf #the number of packets to process
 
 # KitNET params:
 maxAE = 10 #maximum size for any autoencoder in the ensemble layer
-FMgrace = 5000 #the number of instances taken to learn the feature mapping (the ensemble's architecture)
-ADgrace = 50000 #the number of instances used to train the anomaly detector (ensemble itself)
 
-# FMgrace = 20
-# ADgrace = 50
+# attack
+FMgrace = args.fmgrace
+ADgrace = args.adgrace
+
+# mirai
+# FMgrace = 5000
+# ADgrace = 45000
 
 # Build Kitsune
 K = Kitsune(path,packet_limit,maxAE,FMgrace,ADgrace)
