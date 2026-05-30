@@ -9,3 +9,11 @@ To test slips, you need to have docker installed.
 1. ``` docker run -it --rm -p 55000:55000 -v $(pwd):/dataset stratosphereips/slips bash```
 2. ``` ./slips.py -f /dataset/attack.pcap ```
 3. ``` ./webinterface.sh ```
+
+
+## Kitsune
+1. ``` .\kitsune-env\Scripts\activate ```
+2. ``` pip install -r requirements.txt ```
+3. ``` python example.py ```
+
+## Kismet
