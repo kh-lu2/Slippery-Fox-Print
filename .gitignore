@@ -3,3 +3,4 @@ __pycache__/
 *.pyd
 venv/
 build/
+deauth.csv

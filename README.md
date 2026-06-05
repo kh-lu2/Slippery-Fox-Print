@@ -2,9 +2,9 @@
 The name of this repository comes from the three tools that can be analyzed using it.
 - Slips
 - Kitsune (fox in Japanese)
-- nPrintML
+- nPrint (with wlan extention)
 
-The following commands were tested on a Windows system.
+The following commands were tested on a Windows system with wsl installed.
 
 ## Slips
 Run docker container:
@@ -50,4 +50,33 @@ Deactivate virtual environment:
 deactivate
 ```
 
-## nPrintML
+## nPrint
+Use nprint: 
+```bash
+cd nprint
+wsl
+./nprint -P ../attacks/layer2/deauth.pcap -w -W deauth.csv
+exit
+```
+
+Find attack frames:
+```powershell
+cd nprint
+tshark -r ../attacks/layer2/deauth.pcap -Y "(wlan.fc.type_subtype==10 || wlan.fc.type_subtype==12) && wlan.fc.protected==0 && frame.number >= 1088022 && frame.number <= 1626254" -T fields -e frame.number > attack_frames.txt
+```
+
+Setup environment:
+```powershell
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+Now run the cells in `nprint.ipynb`
+
+Deactivate virtual environment:  
+```powershell
+deactivate
+```
+
+
