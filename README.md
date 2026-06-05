@@ -4,7 +4,10 @@ The name of this repository comes from the three tools that can be analyzed usin
 - Kitsune (fox in Japanese)
 - nPrint (with wlan extention)
 
-The following commands were tested on a Windows system with wsl installed.
+## Cloning the repo
+Before cloning the repo, please ensure you have Git LFS installed.
+
+If you don't: `git lfs install`
 
 ## Slips
 Run docker container:
